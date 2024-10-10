@@ -26,7 +26,7 @@ export const Header = () => {
               <Link className="opacity-60" href="#">Help</Link>
 
               <button className="inline-flex h-10 animate-shimmer items-center justify-center rounded-lg border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors">
-                Shimmer
+                Get Started
               </button>
             </nav>
           </div>
