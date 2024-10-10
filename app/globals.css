@@ -2,26 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .btn {
+    @apply text-sm px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight cursor-pointer backdrop-blur-3xl;
+  }
+  .btn-primary {
+    @apply bg-slate-950 text-white;
+  }
+  .btn-text {
+    @apply bg-transparent text-slate-950 backdrop-blur-none;
+  }
+  .heading-gradient {
+    @apply text-3xl md:text-[54px] h-full font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6 text-center;
+    line-height: 1.2;
+  }
+  .subheading {
+    @apply text-xl text-[#010D3E] tracking-tight mt-6 text-center text-[22px];
+  }
+  .card {
+    @apply p-10 border border-[#F1F1F1] rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* styles.css */
+.masked-gradient {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
+  
+  /* Optional: Set dimensions and overflow */
+  height: auto; /* Adjust as needed */
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
