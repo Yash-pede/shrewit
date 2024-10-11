@@ -1,6 +1,7 @@
 import BtnMovingBorder from "@/components/border-btn";
 import { cn } from "@/lib/utils";
 import CheckIcon from "@/public/check.svg";
+
 const pricingTiers = [
   {
     title: "Free",
@@ -8,47 +9,44 @@ const pricingTiers = [
     buttonText: "Get started for free",
     popular: false,
     inverse: false,
+    altText: "Get started with",
     features: [
-      "Up to 5 project members",
-      "Unlimited tasks and projects",
-      "2GB storage",
-      "Integrations",
-      "Basic support",
+      "Up to 5 active users",
+      "Unlimited product listings",
+      "50 MB storage space",
+      "Basic analytics",
     ],
   },
   {
     title: "Pro",
-    monthlyPrice: 9,
+    monthlyPrice: 8999,
     buttonText: "Sign up now",
     popular: true,
     inverse: true,
+    altText: "Everything in the Free Plan, plus:",
     features: [
-      "Up to 50 project members",
-      "Unlimited tasks and projects",
-      "50GB storage",
-      "Integrations",
+      "Up to 50 active users",
+      "75 GB storage space",
+      "Custom domain support",
+      "Advanced reporting tools",
       "Priority support",
-      "Advanced support",
-      "Export support",
     ],
   },
   {
     title: "Business",
-    monthlyPrice: 19,
+    monthlyPrice: 19999,
     buttonText: "Sign up now",
     popular: false,
     inverse: false,
+    altText: "Everything in the Pro Plan, plus:",
     features: [
-      "Up to 5 project members",
-      "Unlimited tasks and projects",
-      "200GB storage",
-      "Integrations",
+      "Unlimited active users",
+      "100 GB storage space",
       "Dedicated account manager",
-      "Custom fields",
-      "Advanced analytics",
-      "Export capabilities",
-      "API access",
-      "Advanced security features",
+      "Custom feature development",
+      "Comprehensive training and onboarding support",
+      "Monthly performance insights and reviews",
+      "24/7 support",
     ],
   },
 ];
@@ -69,7 +67,15 @@ export const Pricing = () => {
         <div className="flex flex-col gap-6 items-center mt-10 lg:items-end lg:flex-row lg:justify-center">
           {pricingTiers.map(
             (
-              { title, monthlyPrice, buttonText, popular, inverse, features },
+              {
+                title,
+                monthlyPrice,
+                buttonText,
+                popular,
+                inverse,
+                features,
+                altText,
+              },
               index
             ) => (
               <div
@@ -94,9 +100,14 @@ export const Pricing = () => {
                 </div>
                 <div className="flex items-baseline gap-1 mt-[30px]">
                   <span className="text-4xl font-bold tracking-tighter leading-none">
-                    ${monthlyPrice}
+                    ₹{monthlyPrice}
                   </span>
-                  <span className="tracking-tighter font-bold text-black/50">
+                  <span
+                    className={cn(
+                      "tracking-tighter font-bold text-black/50",
+                      inverse === true && "text-white/60"
+                    )}
+                  >
                     /month
                   </span>
                 </div>
@@ -109,8 +120,19 @@ export const Pricing = () => {
                   {buttonText}
                 </button>
                 <ul className="flex flex-col gap-5 mt-8">
+                  <li
+                    className={cn(
+                      "text-sm text-black/50 font-medium",
+                      inverse === true && "text-white/60"
+                    )}
+                  >
+                    {altText}
+                  </li>
                   {features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-4 text-sm">
+                    <li
+                      key={index}
+                      className="grid grid-cols-[24px_1fr] gap-4 text-sm"
+                    >
                       <CheckIcon className="size-6" />
                       <span> {feature}</span>
                     </li>
