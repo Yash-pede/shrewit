@@ -64,7 +64,7 @@ export const Pricing = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-6 items-center mt-10 lg:items-end lg:flex-row lg:justify-center">
+        <div className="flex flex-wrap gap-10 justify-center items-center mt-10 lg:gap-20">
           {pricingTiers.map(
             (
               {
